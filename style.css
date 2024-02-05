@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    top: 0;
+}
+
+body {
+    background-color: #008000;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: .1fr 4fr 1fr;
+    grid-template-rows: .1fr .3fr .2fr .39fr;
+    grid-template-areas: 
+    "topBar topBar topBar"
+    ". squares ."
+    ". stripesElipse ."
+    ". bigRect ."
+}
+
+.border {
+    border: 1vw solid black;
+}
+
+.top-bar {
+    grid-area: topBar;
+    background-color: olive;
+    border-bottom: 1vw solid black;
+}
+
+.squares-container {
+    grid-area: squares;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 5%;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    aspect-ratio: 1/1;
+    height: 100%;
+}
+
+.rotation {
+    rotate: -45deg;
+}
+
+.square {
+    width: 40%;
+    height: 40%;
+    background-color: #f00;
+}
+
+.stripes-elipse-container {
+    grid-area: stripesElipse;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.stripes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    aspect-ratio: 2/1;
+    height: 35%;
+}
+
+.stripe {
+    width: 100%;
+    height: 30%;
+    background-color: #00f;
+}
+
+.ellipse {
+    aspect-ratio: 4/3.5;
+    height: 50%;
+    margin-left: 10%;
+    border-radius: 50%;
+    background-color: lightseagreen;
+}
+
+.big-rectangle-container {
+    grid-area: bigRect;
+    display: flex;
+    justify-content: center;
+}
+
+.rectangle {
+    aspect-ratio: 1/2;
+    height: 100%;
+    background-color: #00f;
+}
+
+.rectangle > p {
+    margin-top: 10%;
+    font-size: 8vw;
+    font-weight: 500;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+@media screen and (min-width: 583px) {
+
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: .2fr 1fr 1fr;
+        grid-template-areas: 
+        "topBar topBar"
+        "squares bigRect"
+        "stripesElipse bigRect";
+    }
+
+    .border {
+        border: .8vw solid black;
+    }
+    
+    .top-bar {
+        margin: -.6vw;
+        border: 1.2vw solid black;
+    }
+
+    .squares-container {
+        margin-top: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        grid-area: squares;
+        transform: translate(5%,5%);
+    }
+
+    .wrapper {
+        height: 75%;
+    }
+
+    .stripes-elipse-container {
+        transform: translate(5%);
+    }
+
+    .stripes {
+        aspect-ratio: 2/1;
+        height: 20%;
+    }
+
+    .ellipse {
+        height: 25%;
+    }
+
+    .big-rectangle-container {
+        justify-content: flex-end;
+        align-items: center;
+        transform: translate(-10%);
+    }
+
+    .rectangle {
+        background-color: #C83737;
+        aspect-ratio: 1/2.5;
+        height: 80%;
+    }
+
+    .rectangle > p {
+        font-size: 6vw;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: .2fr 1fr 1fr;
+        grid-template-areas: 
+        "topBar topBar topBar"
+        "squares stripesElipse bigRect"
+        ". . bigRect";
+    }
+
+    .border {
+        border: .5vw solid black;
+    }
+
+    .top-bar {
+        margin: -.4vw;
+        border: .8vw solid black;
+    }
+
+    .stripes-elipse-container {
+        justify-content: center;
+    }
+
+    .stripes {
+        height: 25%;
+    }
+
+    .rectangle {
+        background-color: white;
+    }
+
+    .rectangle > p {
+        font-size: 4vw;
+    }
+}
